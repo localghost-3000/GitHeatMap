@@ -15,12 +15,15 @@ const LightenDarkenColor = (col, amt) => {
   return (((col & 0x0000FF) + amt) | ((((col >> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16);
 }
 
+const generateDescription = (count) => {
+    return `number of updates: ${count}\nlast updated: ${new Date().toISOString()}`
+}
 
 const createCard = (x,y, title) => {
   const data = {
     data:{
       title: title,
-      description: "sample",
+      description: generateDescription(1),
       dueDate: new Date().toISOString(),
     },
     metadata: `${title}123123`,

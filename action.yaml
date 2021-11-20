@@ -7,9 +7,6 @@ inputs:
   board_id:  
     description: 'board id'
     required: true
-  test_secret:  
-    description: 'test'
-    required: true
   modified_files:  
     description: 'test'
     required: false 

@@ -8,33 +8,14 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
         id: files
-      - name: Printing
-        run: |
-          echo "All:"
-          echo "${{ steps.files.outputs.all }}"
-          echo "Added:"
-          echo "${{ steps.files.outputs.added }}"
-          echo "Removed:"
-          echo "${{ steps.files.outputs.removed }}"
-          echo "Renamed:"
-          echo "${{ steps.files.outputs.renamed }}"
-          echo "Modified:"
-          echo "${{ steps.files.outputs.modified }}"
-          echo "Added+Modified:"
-          echo "${{ steps.files.outputs.added_modified }}"
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: post to miro
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           secret_key: ${{ secrets.MIRO_AUTH_KEY}}
           board_id: ${{ secrets.MIRO_BOARD_ID}}
-          test_secret: ${{ secrets.TEST_SECRET}}
           modified_files: ${{ steps.files.outputs.modified}}
           added_files: ${{ steps.files.outputs.added}}
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
