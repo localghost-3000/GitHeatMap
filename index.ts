@@ -77,8 +77,8 @@ const createCard = (x,y, title) => {
 }
 
 const getAllFiles= async () => {
-  const modified = await core.getInput('modified_files')
-  const added = await core.getInput('added_files')
+  const modified = await core.getInput('modified_files').split(" ")
+  const added = await core.getInput('added_files').split(" ")
   return modified.concat(added)
 }
 
