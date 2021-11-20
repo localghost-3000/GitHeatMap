@@ -82,7 +82,9 @@ const createNewCardsFromFiles = () => {
 
 const createCards = async (boardId) => {
   const requestUrl = `https://api.miro.com/v2/boards/${boardId}/cards`
-  const result = await post(requestUrl, createNewCardsFromFiles[0])
+  const data = createNewCardsFromFiles()
+  console.log(data)
+  const result = await post(requestUrl,data[0])
   console.log(result)
 }
 
@@ -130,5 +132,4 @@ const get = async (url) => {
 }
 print_all_files()
 
-getBoardContents(`${core.getInput('board_id')}`)
 createCards(`${core.getInput('board_id')}`)
