@@ -70,6 +70,9 @@ const updateCards = async () => {
       color: x.style.cardTheme
     }
   })
+  .filter(x => /.[a-z]{2,4}$/.test(x))
+
+
 
   const exsistingTitles = titlesAndId.map(x => x.title)
 
@@ -81,7 +84,7 @@ const updateCards = async () => {
   console.log("exsisting: ",exsistingFiles)
   console.log("new: ",newFiles)
 
-  const startingIndex = exsistingFiles.length
+  const startingIndex = titlesAndId.length
 
   const newCards = newFiles.map((x, index) => createCard(0,(startingIndex+index)*100, x))
   if (newCards.length !== 0){
