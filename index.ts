@@ -41,14 +41,11 @@ const createCard = (x,y, title) => {
   return data
 }
 
-const getUpdateCard = (oldColor) => {
-  const res= {
+const getUpdateCard = () => {
+  const res = {
     data:{
       description: generateDescription(),
     },
-    style: {
-      cardTheme: oldColor
-    }
   }
   return res 
 }
@@ -99,7 +96,7 @@ const updateCards = async () => {
   const updateData = exsistingFiles.map(x => {
      return {
       id: x.id,
-      data: getUpdateCard(x.oldColor),
+      data: getUpdateCard(),
      }
   })
 
