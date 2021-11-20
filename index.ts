@@ -20,7 +20,7 @@ const createCard = (x,y, title) => {
     data:{
       title: title,
       description: "sample",
-      dueDate: "2023-10-12T22:00:55Z",
+      dueDate: new Date().toISOString(),
     },
     metadata: `${title}123123`,
     style: {
@@ -73,14 +73,16 @@ const updateCards = async () => {
   const exsistingTitles = titlesAndId.map(x => x.title)
 
   const allFiles = await getAllFiles()
-  
+
   const exsistingFiles = titlesAndId.filter(x => allFiles.includes(x.title))
   const newFiles = allFiles.filter(x => !exsistingTitles.includes(x))
 
   console.log("exsisting: ",exsistingFiles)
   console.log("new: ",newFiles)
 
-  const newCards = newFiles.map((x, index) => createCard(0,1+index*400, x))
+  const startingIndex = exsistingFiles.length
+
+  const newCards = newFiles.map((x, index) => createCard(0,(startingIndex+index)*400, x))
   if (newCards.length !== 0){
     postNewCards(`${core.getInput('board_id')}`,newCards)
   }
@@ -91,6 +93,7 @@ const updateCards = async () => {
       data: getUpdateCard(x.oldColor),
      }
   })
+  
   if (updateData.length !== 0) {
     patchCards(`${core.getInput('board_id')}`,updateData)
   }
