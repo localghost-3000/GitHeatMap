@@ -129,7 +129,7 @@ const updateCards = async () => {
      }
   })
 
-  patchCards(`${core.getInput('board_id')}`,updateCards)
+  patchCards(`${core.getInput('board_id')}`,updateData)
 
 }
 
