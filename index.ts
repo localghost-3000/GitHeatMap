@@ -83,7 +83,7 @@ const updateCards = async () => {
 
   const startingIndex = exsistingFiles.length
 
-  const newCards = newFiles.map((x, index) => createCard(0,(startingIndex+index)*400, x))
+  const newCards = newFiles.map((x, index) => createCard(0,(startingIndex+index)*100, x))
   if (newCards.length !== 0){
     postNewCards(`${core.getInput('board_id')}`,newCards)
   }
