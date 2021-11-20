@@ -101,7 +101,7 @@ const updateCards = async () => {
 
   const allFiles = getAllFiles()
 
-  const [exsistingFiles, newFiles] = titlesAndId.reduce(([p, f], e) => (allFiles.contains(e.title)? [[...p, e], f] : [p, [...f, e]]), [[], []]);
+  const [exsistingFiles, newFiles] = titlesAndId.reduce(([p, f], e) => (allFiles.includes(e.title)? [[...p, e], f] : [p, [...f, e]]), [[], []]);
   console.log(exsistingFiles)
   console.log(newFiles)
 }
