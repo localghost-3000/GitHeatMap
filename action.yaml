@@ -13,9 +13,11 @@ inputs:
   modified_files:  
     description: 'test'
     required: false 
+    default: ''
   added_files:  
     description: 'test'
-    required: false 
+    required: false
+    default: '' 
 outputs:
   time: # id of output
     description: 'The time we greeted you'

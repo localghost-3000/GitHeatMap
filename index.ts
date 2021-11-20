@@ -104,10 +104,10 @@ const updateCards = async () => {
   const allFiles = getAllFiles()
   
   const exsistingFiles = titlesAndId.filter(x => allFiles.includes(x.title))
-  const newFiles = allFiles.filter(x => !exsistingItems.includes(x))
+  const newFiles = allFiles.filter(x => !exsistingTitles.includes(x))
 
-  console.log(exsistingFiles)
-  console.log(newFiles)
+  console.log("exsisting: ",exsistingFiles)
+  console.log("new: ",newFiles)
 }
 
 const createCards = async (boardId) => {
