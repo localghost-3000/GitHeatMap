@@ -49,8 +49,63 @@ const print_all_files = () => {
   console.log(added)
 }
 
+const createCard = async (x,y, title) => {
+  const data = {
+    data:{
+      title: title,
+      description: "sample",
+      dueDate: "2023-10-12T22:00:55Z"
+    },
+    style: {
+          cardTheme: "#2d9bf0"
+     },
+     geometry: {
+          x: x,
+          y: y,
+          width: "320.0",
+          height: "94.0",
+          rotation: "0.0"
+     }
+  }
+  return data
+}
+
+const createNewCardsFromFiles = () => {
+  // TEST
+  const modified = core.getInput('modified_files')
+  .split(" ")
+  .map(x => createCard(0,0,x))
+  return modified
+ 
+}
+
+
+const createCards = async (boardId) => {
+  const requestUrl = `https://api.miro.com/v2/boards/${boardId}/widgets`
+  const result = await post(requestUrl, createNewCardsFromFiles[0])
+  console.log(result)
+}
+
+const post = async (url, data) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `${core.getInput('secret_key')}`
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data),
+  });
+
+  return response.json()
+}
+
 const getBoardContents = async (boardId) => {
-  console.log('test secret', core.getInput('test_secret'))
   const requestUrl = `https://api.miro.com/v2/boards/${boardId}/widgets`
   const result = await get(requestUrl)
   console.log(result)
