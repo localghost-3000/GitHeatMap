@@ -16,7 +16,7 @@ const LightenDarkenColor = (col, amt) => {
 }
 
 const generateDescription = (count) => {
-    return `number of updates: ${count}\nlast updated: ${new Date().toISOString()}`
+    return `last updated: ${new Date().toISOString()}`
 }
 
 const createCard = (x,y, title) => {
