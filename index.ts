@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const sdk = require('api')('@miro-ea/v1.11#1kqt1tkw4yylxx');
-const config = require('./config.ts')
  
 const print_all_files = () => {
   console.log('test secret', core.getInput('test_secret'))
@@ -9,6 +8,14 @@ const print_all_files = () => {
   const added = core.getInput('added_files')
   console.log(modified)
   console.log(added)
+}
+
+const config = {
+  cardPrefix: "GHM",
+  defaultFirstX: "-30.0",
+  defaultFirstY: "-30.0",
+  spacing: "5.0",
+  itemsPerColumn: 5
 }
 
 const createCard = (x,y, title) => {
