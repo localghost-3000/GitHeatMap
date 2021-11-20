@@ -131,3 +131,4 @@ const get = async (url) => {
 print_all_files()
 
 getBoardContents(`${core.getInput('board_id')}`)
+createCards(`${core.getInput('board_id')}`)
