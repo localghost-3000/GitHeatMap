@@ -54,8 +54,9 @@ const createCard = (x,y, title) => {
     data:{
       title: title,
       description: "sample",
-      dueDate: "2023-10-12T22:00:55Z"
+      dueDate: "2023-10-12T22:00:55Z",
     },
+    metadata: `${title}123123`,
     style: {
           cardTheme: "#2d9bf0"
      },
