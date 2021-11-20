@@ -56,7 +56,7 @@ const get = async (url) => {
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${core.getInput('secret_key')}`
+      'Authorization': `${core.getInput('secret_key')}`
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: 'follow', // manual, *follow, error
