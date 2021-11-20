@@ -72,6 +72,7 @@ const updateCards = async () => {
   })
   .filter(x => /.*\.[a-z]{2,4}$/.test(x))
 
+  console.log("titles: ",titlesAndId)
   const exsistingTitles = titlesAndId.map(x => x.title)
 
   const allFiles = await getAllFiles()
