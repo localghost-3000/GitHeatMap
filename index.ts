@@ -15,6 +15,7 @@ const LightenDarkenColor = (col, amt) => {
   return (((col & 0x0000FF) + amt) | ((((col >> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16);
 }
 
+
 const createCard = (x,y, title) => {
   const data = {
     data:{
