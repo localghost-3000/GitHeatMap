@@ -1,0 +1,18 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  secret_key:  # id of input
+    description: 'secret key'
+    required: true
+  board_id:  # id of input
+    description: 'board id'
+    required: true
+  test_secret:  # id of input
+    description: 'test'
+    required: true
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
