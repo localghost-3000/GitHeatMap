@@ -144,7 +144,7 @@ const postNewCards = async (boardId, cards) => {
     const res = await post(requestUrl, x);
     return res
   }))
-  console.log(result)
+  console.log("POST: ",result)
 }
 
 const createCards = async (boardId) => {
@@ -155,7 +155,7 @@ const createCards = async (boardId) => {
     const res = await post(requestUrl, x);
     return res
   }))
-  console.log(result)
+  console.log("POST: ",result)
 }
 
 const patchCards = async (boardId, data) => {
@@ -165,7 +165,7 @@ const patchCards = async (boardId, data) => {
     const res = await patch(`${requestUrl}${x.id}`, x.data);
     return res
   }))
-  console.log(result)
+  console.log("PATCH: ",result)
 }
 
 const post = async (url, data) => {
@@ -239,5 +239,5 @@ const get = async (url) => {
 }
 print_all_files()
 
-createCards(`${core.getInput('board_id')}`)
+//createCards(`${core.getInput('board_id')}`)
 updateCards()
