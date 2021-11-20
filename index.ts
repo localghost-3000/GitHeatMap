@@ -79,7 +79,7 @@ const createCard = (x,y, title) => {
 const getAllFiles= async () => {
   const modified = await core.getInput('modified_files').split(" ")
   const added = await core.getInput('added_files').split(" ")
-  return modified.concat(added)
+  return modified.concat(added).filter(x => x)
 }
 
 const createNewCardsFromAdded = async () => {
@@ -109,6 +109,21 @@ const updateCards = async () => {
 
   console.log("exsisting: ",exsistingFiles)
   console.log("new: ",newFiles)
+
+  const newCards = newFiles.map((x, index) => createCard(0,1+index*400, x))
+  postNewCards(`${core.getInput('board_id')}`,newCards)
+
+
+}
+
+
+const postNewCards = async (boardId, cards) => {
+  const requestUrl = `https://api.miro.com/v2/boards/${boardId}/cards`
+  const result = await Promise.all( cards.map(async (x) => {
+    const res = await post(requestUrl, x);
+    return res
+  }))
+  console.log(result)
 }
 
 const createCards = async (boardId) => {
@@ -120,6 +135,10 @@ const createCards = async (boardId) => {
     return res
   }))
   console.log(result)
+}
+
+const patchCards = async (boardId) => {
+
 }
 
 const post = async (url, data) => {
