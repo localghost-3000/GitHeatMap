@@ -33,7 +33,7 @@ const createCard = (x,y, title) => {
      geometry: {
           x: x,
           y: y,
-          width: "240.0",
+          width: "256.0",
           height: "94.0",
           rotation: "0.0"
      }
