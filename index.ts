@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const sdk = require('api')('@miro-ea/v1.11#1kqt1tkw4yylxx');
-import { config } from './config'
+const config = require('./config')
  
 const print_all_files = () => {
   console.log('test secret', core.getInput('test_secret'))
