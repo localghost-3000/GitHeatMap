@@ -40,7 +40,7 @@ const createCard = (x,y, title) => {
 const getUpdateCard = (oldColor) => {
   const data = {
     style: {
-      cardTheme: `${LightenDarkenColor(oldColor,100)}`
+      cardTheme: `${LightenDarkenColor(oldColor,200)}`
     }
   }
   return data
@@ -93,7 +93,7 @@ const updateCards = async () => {
       data: getUpdateCard(x.oldColor),
      }
   })
-  
+
   if (updateData.length !== 0) {
     patchCards(`${core.getInput('board_id')}`,updateData)
   }
