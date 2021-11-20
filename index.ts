@@ -163,7 +163,7 @@ const getBoardContents = async (boardId) => {
 }
 
 const getCards = async (boardId) => {
-  const requestUrl = `https://api.miro.com/v2/boards/${boardId}/widgets&type=card`
+  const requestUrl = `https://api.miro.com/v2/boards/${boardId}/widgets?type=card`
   const result = await get(requestUrl)
   console.log(result)
   return result
