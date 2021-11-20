@@ -47,7 +47,7 @@ const getUpdateCard = (oldColor) => {
       description: generateDescription(),
     },
     style: {
-      cardTheme: `${LightenDarkenColor(oldColor,200)}`
+      cardTheme: oldColor
     }
   }
   return res 
