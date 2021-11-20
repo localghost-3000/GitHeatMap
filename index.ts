@@ -102,6 +102,7 @@ const updateCards = async () => {
   const exsistingTitles = titlesAndId.map(x => x.title)
 
   const allFiles = getAllFiles()
+  console.log("all: ", allFiles)
   
   const exsistingFiles = titlesAndId.filter(x => allFiles.includes(x.title))
   const newFiles = allFiles.filter(x => !exsistingTitles.includes(x))
