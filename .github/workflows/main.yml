@@ -11,17 +11,17 @@ jobs:
       - name: Printing
         run: |
           echo "All:"
-          echo "${{ steps.abc.outputs.all }}"
+          echo "${{ steps.files.outputs.all }}"
           echo "Added:"
-          echo "${{ steps.abc.outputs.added }}"
+          echo "${{ steps.files.outputs.added }}"
           echo "Removed:"
-          echo "${{ steps.abc.outputs.removed }}"
+          echo "${{ steps.files.outputs.removed }}"
           echo "Renamed:"
-          echo "${{ steps.abc.outputs.renamed }}"
+          echo "${{ steps.files.outputs.renamed }}"
           echo "Modified:"
-          echo "${{ steps.abc.outputs.modified }}"
+          echo "${{ steps.files.outputs.modified }}"
           echo "Added+Modified:"
-          echo "${{ steps.abc.outputs.added_modified }}"
+          echo "${{ steps.files.outputs.added_modified }}"
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
