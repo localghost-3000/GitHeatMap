@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to create a shape
     steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: jitterbit/get-changed-files@v1
+        id: files
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: post to miro
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           secret_key: ${{ secrets.MIRO_AUTH_KEY}}
           board_id: ${{ secrets.MIRO_BOARD_ID}}
-          test_secret: ${{ secrets.TEST_SECRET}}
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          modified_files: ${{ steps.files.outputs.modified}}
+          added_files: ${{ steps.files.outputs.added}}
