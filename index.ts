@@ -74,7 +74,7 @@ const createNewCardsFromFiles = async () => {
   // TEST
   const modified = await core.getInput('modified_files')
   .split(" ")
-  .map(x => createCard(0,0,x))
+  .map((title, index) => createCard(index*100,0,title))
   return modified
  
 }
@@ -84,7 +84,10 @@ const createCards = async (boardId) => {
   const requestUrl = `https://api.miro.com/v2/boards/${boardId}/cards`
   const data = await createNewCardsFromFiles()
   console.log(data)
-  const result = await post(requestUrl,data[0])
+  const result = await Promise.all( data.map(async (x) => {
+    const res = await post(requestUrl, x);
+    return res
+  }))
   console.log(result)
 }
 
