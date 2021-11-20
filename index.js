@@ -67,4 +67,4 @@ const get = async (url) => {
 }
 
 
-getBoardContents()
+getBoardContents(`${core.getInput('board_id')}`)
