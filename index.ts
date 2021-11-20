@@ -70,7 +70,7 @@ const updateCards = async () => {
       color: x.style.cardTheme
     }
   })
-  .filter(x => /.[a-z]{2,4}$/.test(x))
+  .filter(x => /.*\.[a-z]{2,4}$/.test(x))
 
 
 
