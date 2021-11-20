@@ -15,7 +15,7 @@ const LightenDarkenColor = (col, amt) => {
   return (((col & 0x0000FF) + amt) | ((((col >> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16);
 }
 
-const generateDescription = (count) => {
+const generateDescription = () => {
     return `last updated: ${new Date().toISOString()}`
 }
 
@@ -23,7 +23,7 @@ const createCard = (x,y, title) => {
   const data = {
     data:{
       title: title,
-      description: generateDescription(1),
+      description: generateDescription(),
       dueDate: new Date().toISOString(),
     },
     metadata: `${title}123123`,
@@ -43,6 +43,9 @@ const createCard = (x,y, title) => {
 
 const getUpdateCard = (oldColor) => {
   const data = {
+    data:{
+      description: generateDescription(),
+    },
     style: {
       cardTheme: `${LightenDarkenColor(oldColor,200)}`
     }
