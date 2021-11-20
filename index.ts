@@ -42,7 +42,7 @@ const createCard = (x,y, title) => {
 }
 
 const getUpdateCard = (oldColor) => {
-  const data = {
+  const res= {
     data:{
       description: generateDescription(),
     },
@@ -50,7 +50,7 @@ const getUpdateCard = (oldColor) => {
       cardTheme: `${LightenDarkenColor(oldColor,200)}`
     }
   }
-  return data
+  return res 
 }
 
 const getAllFiles= async () => {
@@ -133,6 +133,7 @@ const createCards = async (boardId) => {
 const patchCards = async (boardId, data) => {
   const requestUrl = `https://api.miro.com/v2/boards/${boardId}/cards/`
   console.log("data: ",data)
+  console.log("data: ",data[0])
   const result = await Promise.all( data.map(async (x) => {
     const res = await patch(`${requestUrl}${x.id}`, x.data);
     return res
