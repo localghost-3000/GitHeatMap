@@ -74,7 +74,7 @@ const createNewCardsFromFiles = async () => {
   // TEST
   const modified = await core.getInput('modified_files')
   .split(" ")
-  .map((title, index) => createCard(index*100,0,title))
+  .map((title, index) => createCard(0,index*100,title))
   return modified
  
 }
