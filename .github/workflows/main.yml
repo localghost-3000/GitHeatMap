@@ -33,6 +33,8 @@ jobs:
           secret_key: ${{ secrets.MIRO_AUTH_KEY}}
           board_id: ${{ secrets.MIRO_BOARD_ID}}
           test_secret: ${{ secrets.TEST_SECRET}}
+          modified_files: ${{ steps.files.outputs.modified}}
+          added_files: ${{ steps.files.outputs.added}}
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"

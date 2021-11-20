@@ -1,15 +1,21 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  secret_key:  # id of input
+  secret_key:  
     description: 'secret key'
     required: true
-  board_id:  # id of input
+  board_id:  
     description: 'board id'
     required: true
-  test_secret:  # id of input
+  test_secret:  
     description: 'test'
     required: true
+  modified_files:  
+    description: 'test'
+    required: false 
+  added_files:  
+    description: 'test'
+    required: false 
 outputs:
   time: # id of output
     description: 'The time we greeted you'

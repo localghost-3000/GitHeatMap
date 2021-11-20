@@ -41,6 +41,14 @@ try {
 }
 */
 
+const print_all_files = () => {
+  console.log('test secret', core.getInput('test_secret'))
+  const modified = core.getInput('modified_files')
+  const added = core.getInput('added_files')
+  console.log(modified)
+  console.log(added)
+}
+
 const getBoardContents = async (boardId) => {
   console.log('test secret', core.getInput('test_secret'))
   const requestUrl = `https://api.miro.com/v2/boards/${boardId}/widgets`
@@ -65,6 +73,6 @@ const get = async (url) => {
 
   return response.json()
 }
-
+print_all_files()
 
 getBoardContents(`${core.getInput('board_id')}`)
