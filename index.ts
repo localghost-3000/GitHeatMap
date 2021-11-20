@@ -76,9 +76,9 @@ const createCard = (x,y, title) => {
   return data
 }
 
-const getAllFiles= () => {
-  const modified = core.getInput('modified_files')
-  const added = core.getInput('added_files')
+const getAllFiles= async () => {
+  const modified = await core.getInput('modified_files')
+  const added = await core.getInput('added_files')
   return modified.concat(added)
 }
 
@@ -101,7 +101,7 @@ const updateCards = async () => {
 
   const exsistingTitles = titlesAndId.map(x => x.title)
 
-  const allFiles = getAllFiles()
+  const allFiles = await getAllFiles()
   console.log("all: ", allFiles)
   
   const exsistingFiles = titlesAndId.filter(x => allFiles.includes(x.title))
