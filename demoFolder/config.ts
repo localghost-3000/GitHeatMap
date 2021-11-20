@@ -1,5 +1,5 @@
 const config = {
-  port: 3001,
-  appId: 'localghost'
+  port: 3000,
+  appId: 'localhost'
 }
 
