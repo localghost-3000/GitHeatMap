@@ -1,5 +1,5 @@
 const someConstThatIWillChange = {
-  personType: 'dog',
+  personType: 'god',
   ownedPet: 'cat',
-  aspiringToBeA: 'unicorn'
+  aspiringToBeA: 'butterly'
 }
